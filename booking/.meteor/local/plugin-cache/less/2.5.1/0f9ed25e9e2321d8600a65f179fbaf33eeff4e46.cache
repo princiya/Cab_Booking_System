@@ -1,0 +1,2 @@
+{"{}/client/views/providers/providerList.less":"08b20d91315881753224965c9072821905c845df"}
+{"css":".providerDeleteButton {\n  margin-top: -7px !important;\n  opacity: .3 !important;\n}\n","sourceMap":{"version":3,"sources":["client/views/providers/providerList.less"],"names":[],"mappings":"AAAA;EACC,gBAAA;EACA,sBAAA","sourcesContent":[".providerDeleteButton {\n\tmargin-top: -7px !important;\n\topacity: .3 !important;\n}"]}}

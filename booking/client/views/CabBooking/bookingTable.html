@@ -1,0 +1,71 @@
+<template name="bookingTable">
+	<div id="bookingTable">
+		<!-- <div class="row">
+			<div class="" -->
+		<h2 class="dayDisplay pull-left">{{day}}</h2>
+		<h2 class="pull-right">{{notes}}</h2>
+		<!-- </div> -->
+		<ul class="nav nav-tabs" role="tablist">
+            {{#if noneSelected}}
+                <div class="alert alert-info" role="alert">Pick a provider to display appointments.</div>
+            {{/if}}
+			{{#each providerNames}}
+				<li class="{{selected}}"><a data-name={{name}} class="providerTab"  href="#">Booking Details
+					</a></li>
+			{{/each}}
+		</ul>
+		<div id="bookingTableWrapper" {{bookingTableWrapperStyle}}>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Time
+						</th>
+						<th>
+							Booking Status
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each times}}
+						{{> timeRow}}
+					{{/each}}
+
+                    {{#each blockouts}}
+                        {{> blockoutItem}}
+                    {{/each}}
+                    {{#each appointments}}
+                        {{> appointmentItem}}
+                    {{/each}}
+
+				</tbody>
+
+			</table>
+		</div>
+		{{#if notPrintout}}
+		<div class="pull-right" id="customTimeChanger">
+			<button type="button" style="{{buttonStyle}}" id="customTimesButton" class="btn">Set Custom Times</button>
+			{{#if unusualDays}}
+				{{#autoForm collection="unusualDays" id="changeDayTimes"
+				doc=todaysUnusualTimes type="update" autosave=true class="form-inline"}}
+					<div class="form-group">
+					{{> afQuickField name="startTime" style="width: 75px"}}
+					{{> afQuickField name="endTime" style="width: 75px"}}
+					{{> afQuickField name="appointmentLength" step=5 style="width: 75px"}}
+					
+					
+					</div>
+				{{/autoForm}}
+			{{/if}}
+		</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="timeRow">
+	<tr  class="timeRow {{rowHighlightClass}}">
+		<td class="rowHeader">{{time}}</td>
+		<td id={{rowTimeId}} class="rowContent"></td>
+	</tr>
+</template>
+

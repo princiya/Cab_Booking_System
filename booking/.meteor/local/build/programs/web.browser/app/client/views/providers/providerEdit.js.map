@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/client/views/providers/providerEdit.js"],"names":[],"mappings":"yBAAA;AACA;AACA;AACA;AACA,E","file":"/client/views/providers/providerEdit.js","sourcesContent":["Template.providerEdit.helpers({\n\teditingProvider: function(){\n\t\treturn providers.findOne({name: Session.get(\"selectedProviderName\")})\n\t}\n})"]}

@@ -1,0 +1,54 @@
+<head>
+    <title>Cab Booking System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+</body>
+
+
+<template name="singlePageMasterLayout">
+    <div class="container">
+        {{> navbar}}
+        <div id="main">
+            {{> yield}}
+        </div>
+    </div>
+</template>
+
+<template name="navbar">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{pathFor 'bookingTable' date=homeLinkDate providerName=homeLinkProv}}"> Cab Booking</a>
+        </div>
+        {{#if loggedIn}}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="{{pathFor 'calendar' month=calendarMonth year=calendarYear}}">Calendar</a></li>
+                
+                
+            </ul>
+            {{#unless isCalendar}}
+                <form class="navbar-form navbar-left">
+                    {{> datepicker}}
+                </form>
+            {{/unless}}
+            <form class="navbar-form navbar-right">
+                
+                <button type="button" id="newAppointButton" class="btn btn-primary">Book A Cab</button>
+             <button type="button" id="signOutButton" class="btn">Sign Out</button>
+            </form>
+
+           
+        </div>
+        {{/if}}
+        </div>
+    </nav>
+</template>
