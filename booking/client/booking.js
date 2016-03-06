@@ -10,6 +10,8 @@ Template.navbar.events({
 		$('#datetimepicker1').data("DateTimePicker").show()
 	},
 	'click #newAppointButton': function() { //book a cab button
+		Meteor.call('sendEmail', 'toEmail', 'fromEmail', 'subject', 'text');
+		//replace the 'toEmail', 'fromEmail', 'subject', 'text' fields with suitable values 
 		newAppointment('12:00 PM', false);
 	},
 	
